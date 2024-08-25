@@ -1,0 +1,54 @@
+; Simple Pong game in x86 Assembly
+section .data
+    prompt db 'Move paddle (a/d): ', 0
+    score db 'Score: ', 0
+    newline db 10, 0
+
+section .bss
+    paddle_pos resb 1
+    ball_pos resb 1
+    direction resb 1
+    score_val resb 1
+
+section .text
+    global _start
+
+_start:
+    mov [paddle_pos], 5
+    mov [ball_pos], 10
+    mov [direction], 1
+    mov [score_val], 0
+
+game_loop:
+    ; Move ball
+    mov al, [ball_pos]
+    add al, [direction]
+    mov [ball_pos], al
+
+    ; Check collision
+    cmp al, 20
+    jge reverse_direction
+    cmp al, 0
+    jle reverse_direction
+
+    ; Print paddle and ball
+    ; Omitted for brevity
+
+    ; Read user input
+    mov eax, 3
+    mov ebx, 0
+    lea ecx, [paddle_pos]
+    mov edx, 1
+    int 0x80
+
+    ; Update score
+    ; Omitted for brevity
+
+    ; Check game over
+    ; Omitted for brevity
+
+    jmp game_loop
+
+reverse_direction:
+    neg byte [direction]
+    jmp game_loop
