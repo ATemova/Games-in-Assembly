@@ -1,2 +1,3 @@
 # Games-in-Assembly
-Unpublished games in assembly
+### Unpublished games in assembly
+**Assembly language** is a low-level programming language that provides a symbolic representation of a computer’s machine code. Each assembly language instruction corresponds directly to a machine code instruction, allowing programmers to write programs that are closely aligned with the hardware's architecture. This level of control makes assembly language ideal for tasks that require precise hardware manipulation, such as writing device drivers, optimizing performance-critical applications, or developing embedded systems. While assembly language is more complex and less portable than high-level languages, it offers the ability to write highly efficient code by leveraging the specific capabilities of the processor. Understanding assembly language is crucial for tasks that demand deep knowledge of computer architecture and low-level system operations.
